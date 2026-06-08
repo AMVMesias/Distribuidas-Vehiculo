@@ -6,4 +6,18 @@ export abstract class Vehiculo {
 
     @Column()
     placa!: string;
+
+    @Column()
+    marca!: string;
+
+    @Column()
+    modelo!: string;
+
+    @Column()
+    color!: string;
+
+    @Column()
+    anio!: number;
+
+    @Column()
 }
