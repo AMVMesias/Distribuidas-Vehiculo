@@ -1,7 +1,7 @@
 import { CreateVehiculoDto } from "../dto/create-vehiculo.dto";
 import { Auto } from "../entities/auto.entity";
 import { Camioneta } from "../entities/camioneta.entity";
-import { Motocicleta } from "../entities/motocicleta";
+import { Motocicleta } from "../entities/motocicleta.entity";
 import { Vehiculo } from "../entities/vehiculo.entity";
 
 export class FactoryVehiculos {
