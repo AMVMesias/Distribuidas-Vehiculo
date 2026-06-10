@@ -1,4 +1,13 @@
-import { Column, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn, TableInheritance } from "typeorm";
+
+export enum Clasificacion{
+    ELECTRICO = "Electrico",
+    HIBRIDO = "Hibrido",
+    GASOLINA = "Gasolina",
+}
+
+@Entity()
+@TableInheritance({ column: { type: "varchar", name: "tipo" } })
 
 export abstract class Vehiculo {
     @PrimaryGeneratedColumn("uuid")
@@ -19,5 +28,8 @@ export abstract class Vehiculo {
     @Column()
     anio!: number;
 
-    @Column()
+    @Column({type: "enum", enum: Clasificacion})
+    clasificacion!: Clasificacion;
+
+    abstract obtenerTipo(): string;
 }
