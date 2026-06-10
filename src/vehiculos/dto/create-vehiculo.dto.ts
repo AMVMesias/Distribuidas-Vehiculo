@@ -1,5 +1,6 @@
 import { Type } from "class-transformer";
-import { IsNotEmpty, IsString, Matches, MaxLength, Min, MinLength, IsInt, IsNumber, Max, ValidateNested, IsIn } from "class-validator";
+import { IsNotEmpty, IsString, Matches, MaxLength, Min, MinLength, IsInt, IsNumber, Max, ValidateNested, IsIn, IsEnum } from "class-validator";
+import { Clasificacion } from "../entities/vehiculo.entity";
 
 class BaseVehiculoDto {
 
@@ -32,6 +33,10 @@ class BaseVehiculoDto {
     @IsInt({ message: "El año debe ser un número entero" })
     @IsNumber({}, { message: "El año debe ser un número" })
     anio!: number;
+
+    @IsNotEmpty({ message: "La clasificación es obligatoria" })
+    @IsEnum(Clasificacion, { message: "La clasificación debe ser Electrico, Hibrido o Gasolina" })
+    clasificacion!: Clasificacion;
 }
 
 class AutoDto extends BaseVehiculoDto {
